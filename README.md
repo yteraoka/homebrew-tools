@@ -23,7 +23,7 @@ App ID をメモ
 
 ### Secrets 設定
 
-Settings → Secrets
+Settings → Secrets and variables → Repository secrets
 
 - `APP_ID`
   - メモった App ID (数字)
@@ -48,7 +48,7 @@ jobs:
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
           # 自分のリポジトリと Tap リポジトリの両方に権限を絞る（任意）
           # repositories: "my-app, homebrew-tools"
 
