@@ -65,6 +65,20 @@ jobs:
 
 ## goreleaser の設定
 
+https://goreleaser.com/customization/homebrew_casks/
+
+```yaml
+homebrew_casks:
+  - repository:
+      owner: yteraoka
+      name: homebrew-tools
+      token: "{{ .Env.GITHUB_TOKEN }}"
+      pull_request:
+        enabled: false
+```
+
+**deprecated**
+
 ```yaml
 # .goreleaser.yaml
 brews:
