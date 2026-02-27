@@ -50,7 +50,9 @@ jobs:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
           # 自分のリポジトリと Tap リポジトリの両方に権限を絞る（任意）
-          # repositories: "my-app, homebrew-tools"
+          # repositories: |
+          #   my-app
+          #   homebrew-tools
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
