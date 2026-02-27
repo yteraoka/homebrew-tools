@@ -49,6 +49,7 @@ jobs:
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
+	  owner: ${{ github.repository_owner }}
           # 自分のリポジトリと Tap リポジトリの両方に権限を絞る（任意）
           # repositories: |
           #   my-app
