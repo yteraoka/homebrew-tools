@@ -3,7 +3,7 @@ cask "httc" do
   name "httc"
   desc ""
   homepage ""
-  version "1.0.0"
+  version "1.0.1"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,28 @@ cask "httc" do
   on_macos do
     on_intel do
       url "https://github.com/yteraoka/httc/releases/download/v#{version}/httc_#{version}_darwin_amd64.tar.gz"
-      sha256 "6f348e99862dadde12fcb861d921725ab77179751b0bf456693b1f9c3ed04397"
+      sha256 "52a545831733dab36e91f361ddfcd193e3b30270447286f00ff1a3eff787d269"
     end
     on_arm do
       url "https://github.com/yteraoka/httc/releases/download/v#{version}/httc_#{version}_darwin_arm64.tar.gz"
-      sha256 "660811eaa0a6af3042b685e42926d5b119bb28e06285ac2bdb02e966ff126d29"
+      sha256 "e10bd6c27812accd3d5088bb70fbd6fe814214c5677e6ecb451b4f0b74152d9a"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/yteraoka/httc/releases/download/v#{version}/httc_#{version}_linux_amd64.tar.gz"
-      sha256 "263fd445d85d825933fe04d1dd8d09c6bc157574b693d52a2d7292eddfe69068"
+      sha256 "2a0da943d72914ce3d14749c595e615b27d5b7ba7756d83d4b4ac6cfdb177a73"
     end
     on_arm do
       url "https://github.com/yteraoka/httc/releases/download/v#{version}/httc_#{version}_linux_arm64.tar.gz"
-      sha256 "5c68b8217ef74018abac42c89883a19579f005e64232324843934048e30bcb7c"
+      sha256 "5627c1b386645ee4b2c6225b2cf4888231d35b8c68017daa2a3d3e012f11e3e1"
+    end
+  end
+
+  postflight do
+    if OS.mac?
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/httc"]
     end
   end
 
